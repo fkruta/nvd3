@@ -1,5 +1,5 @@
 
-nv.models.lineChart = function() {
+nv.models.lineChart = function(id) {
 
   //============================================================
   // Public Variables with Default Settings
@@ -7,7 +7,8 @@ nv.models.lineChart = function() {
 
   var margin = {top: 30, right: 20, bottom: 50, left: 60},
       color = d3.scale.category20().range(),
-      width = null, 
+      id = id || Math.floor(Math.random() * 10000), //Create semi-unique ID incase user doesn't select one
+      width = null,
       height = null,
       showLegend = true,
       tooltips = true,
@@ -22,7 +23,7 @@ nv.models.lineChart = function() {
   // Private Variables
   //------------------------------------------------------------
 
-  var lines = nv.models.line(125),
+  var lines = nv.models.line(id),
       xAxis = nv.models.axis().orient('bottom').tickPadding(5),
       yAxis = nv.models.axis().orient('left'),
       legend = nv.models.legend().height(30),
