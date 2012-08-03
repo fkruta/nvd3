@@ -22,7 +22,7 @@ nv.models.lineChart = function() {
   // Private Variables
   //------------------------------------------------------------
 
-  var lines = nv.models.line(),
+  var lines = nv.models.line(125),
       xAxis = nv.models.axis().orient('bottom').tickPadding(5),
       yAxis = nv.models.axis().orient('left'),
       legend = nv.models.legend().height(30),

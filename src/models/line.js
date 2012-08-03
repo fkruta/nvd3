@@ -1,5 +1,5 @@
 
-nv.models.line = function() {
+nv.models.line = function(id) {
 
   //============================================================
   // Public Variables with Default Settings
@@ -9,7 +9,7 @@ nv.models.line = function() {
       width = 960,
       height = 500,
       color = d3.scale.category20().range(), // array of colors to be used in order
-      id = Math.floor(Math.random() * 10000), //Create semi-unique ID incase user doesn't select one
+      id = id || Math.floor(Math.random() * 10000), //Create semi-unique ID incase user doesn't select one
       getX = function(d) { return d.x }, // accessor to get the x value from a data point
       getY = function(d) { return d.y }, // accessor to get the y value from a data point
       defined = function(d,i) { return !isNaN(getY(d,i)) && getY(d,i) !== null }, // allows a line to be not continous when it is not defined
