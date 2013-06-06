@@ -86,6 +86,7 @@ nv.models.scatter = function() {
         x.range([0, availableWidth]);
 
       y   .domain(yDomain || d3.extent(seriesData.map(function(d) { return d.y }).concat(forceY)))
+          .nice()
           .range([availableHeight, 0]);
 
       z   .domain(sizeDomain || d3.extent(seriesData.map(function(d) { return d.size }).concat(forceSize)))
