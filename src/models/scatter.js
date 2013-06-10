@@ -94,20 +94,23 @@ nv.models.scatter = function() {
 
       // If scale's domain don't have a range, slightly adjust to make one... so a chart can show a single data point
       if (x.domain()[0] === x.domain()[1] || y.domain()[0] === y.domain()[1]) singlePoint = true;
-      if (x.domain()[0] === x.domain()[1])
-        if x.domain()[0]
-          delta = x.domain()[0] > 0 ? 0.01 : -0.01
-          x.domain([x.domain()[0] - x.domain()[0] * delta, x.domain()[1] + x.domain()[1] * delta])
-        else
+      if (x.domain()[0] === x.domain()[1]) {
+        if (x.domain()[0]) {
+          delta = x.domain()[0] > 0 ? 0.01 : -0.01;
+          x.domain([x.domain()[0] - x.domain()[0] * delta, x.domain()[1] + x.domain()[1] * delta]);
+        } else {
           x.domain([-1,1]);
+        }
+      }
 
-      if (y.domain()[0] === y.domain()[1])
-        if y.domain()[0]
-          delta = y.domain()[0] > 0 ? 0.01 : -0.01
-          y.domain([y.domain()[0] - y.domain()[0] * delta, y.domain()[1] + y.domain()[1] * delta])
-        else
+      if (y.domain()[0] === y.domain()[1]) {
+        if (y.domain()[0]) {
+          delta = y.domain()[0] > 0 ? 0.01 : -0.01;
+          y.domain([y.domain()[0] - y.domain()[0] * delta, y.domain()[1] + y.domain()[1] * delta]);
+        } else {
           y.domain([-1,1]);
-
+        }
+      }
 
       x0 = x0 || x;
       y0 = y0 || y;
